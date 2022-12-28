@@ -3,13 +3,12 @@ import Head from 'next/head'
 import { Navbar } from '../components/navbar'
 import { useMemo, useState } from 'react'
 import { useConnection, useWallet } from '@solana/wallet-adapter-react'
-import { LAMPORTS_PER_SOL, Transaction, PublicKey } from '@solana/web3.js'
 import { gql } from '@apollo/client'
 import client from '../client'
 
 const Home: NextPage = () => {
   const { publicKey } = useWallet()
-  const { connection } = useConnection()
+
 
   // Sample Query 1
   const GET_NFTS_BY_OWNER = gql`
@@ -106,9 +105,11 @@ const Home: NextPage = () => {
   }
 
   const [nfts, setNfts] = useState<Nft[]>([])
+  const [loading, setLoading] = useState<boolean>(false)
 
   useMemo(() => {
     if (publicKey?.toBase58()) {
+      setLoading(true)
       client
         .query({
           query: GET_NFTS_BY_OWNER,
@@ -118,7 +119,10 @@ const Home: NextPage = () => {
             limit: 200
           }
         })
-        .then(res => setNfts(res.data.nfts))
+        .then(res => {
+          setNfts(res.data.nfts)
+          setLoading(false)
+        })
     } else {
       setNfts([])
     }
@@ -136,7 +140,9 @@ const Home: NextPage = () => {
 
       <div className='container'>
         <h1>Connected to: {publicKey?.toBase58()}</h1>
-        {nfts.length > 0 && <ul>{nfts.map((nft: Nft)=><li>{nft.name}</li>)}</ul>}
+        {!loading && nfts.length > 0 && <ul>{nfts.map((nft: Nft) => <li>{nft.name}</li>)}</ul>}
+        {loading && <p>Loading NFTs....</p>}
+        {!loading && nfts.length == 0 && <p>No NFTs in this wallet!</p>}
       </div>
 
       <footer></footer>
