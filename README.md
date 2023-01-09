@@ -91,7 +91,7 @@ query nfts(
 To learn more about Holaplex, take a look at the following resources:
 
 - [Holaplex API Documentation](https://docs.holaplex.com) - read about holaplex API and features. 
-- [Learn more about Holaplex](https://https://www.holaplex.com/) - learn how Holaplex can help maximize your web3 potential.
+- [Learn more about Holaplex](https://www.holaplex.com/) - learn how Holaplex can help maximize your web3 potential.
 - [Learn about GraphQL](https://graphql.org/) - GraphQL homepage and documentation.
 
 
