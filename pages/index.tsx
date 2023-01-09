@@ -116,7 +116,7 @@ const Home: NextPage = () => {
           variables: {
             owners: [publicKey?.toBase58()],
             offset: 0,
-            limit: 200
+            limit: 10
           }
         })
         .then(res => {
