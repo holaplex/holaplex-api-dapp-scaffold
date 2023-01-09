@@ -32,8 +32,8 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 Our api service is a graphql endpoint serving up clean and organized solana program data.
 
-Some example queries 
 
+**Request interface**
 ```graphql
 query nfts(
   $owners: [PublicKey!],
@@ -52,7 +52,7 @@ query nfts(
   $offset: Int!
 )
 ```
-
+**Request**
 
 ```json
 {
@@ -67,6 +67,7 @@ query nfts(
 }
 ```
 
+**Response**
 ```json
 {
   "data": {
@@ -91,6 +92,7 @@ To learn more about Holaplex, take a look at the following resources:
 
 - [Holaplex API Documentation](https://docs.holaplex.com) - read about holaplex API and features. 
 - [Learn more about Holaplex](https://https://www.holaplex.com/) - learn how Holaplex can help maximize your web3 potential.
+- [Learn about GraphQL](https://graphql.org/) - GraphQL homepage and documentation.
 
 
 
