@@ -1,5 +1,5 @@
 {
-  "name": "buywithsol",
+  "name": "holaplex-dapp-scaffold",
   "private": true,
   "scripts": {
     "dev": "next dev",
