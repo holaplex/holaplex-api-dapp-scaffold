@@ -13,8 +13,6 @@
   "dependencies": {
     "@apollo/client": "^3.6.0",
     "@solana/buffer-layout": "^4.0.0",
-    "@solana/spl-token": "^0.2.0",
-    "@solana/spl-token-swap": "^0.1.2",
     "@solana/wallet-adapter-base": "^0.9.3",
     "@solana/wallet-adapter-react": "^0.15.3",
     "@solana/wallet-adapter-react-ui": "^0.9.5",
